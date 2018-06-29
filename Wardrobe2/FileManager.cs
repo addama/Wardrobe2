@@ -100,9 +100,8 @@ namespace Wardrobe {
 		public static void Rotate(string file) {
 			string newName = file + "." + DateTime.Now.ToString("yyyyMMddTHHmmss");
 			Validate(file);
-			Append(file, "---> Continued in " + newName);
 			Rename(file, newName);
-			
+			Append(file, "---> Continued from " + newName);
 		}
 
 	}

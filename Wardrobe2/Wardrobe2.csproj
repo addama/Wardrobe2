@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Item.cs" />
     <Compile Include="DatabaseManager.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="Logger.cs" />

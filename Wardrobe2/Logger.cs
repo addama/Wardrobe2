@@ -11,7 +11,8 @@ namespace Wardrobe {
 		private static int errorLevel = 2;
 		private static int warnLevel = 1;
 		private static int infoLevel = 0;
-		private static int logLimit = 1000;
+		private static int logLimit = 10485760; // 10mb
+		private static string separator = "--------------------------------------------------------------------------------";
 
 		private static string FormatLine(string line, string severity = "") {
 			string date = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fff");
@@ -19,16 +20,17 @@ namespace Wardrobe {
 			return result;
 		}
 
-		private static bool NeedsRotation() {
+		public static bool CheckLogs() {
 			Dictionary<string, string> info = FileManager.GetInfo(file);
-			if (Int32.Parse(info["Length"]) >= logLimit) {
+			if (info.ContainsKey("Length") && Int32.Parse(info["Length"]) >= logLimit) {
+				Log("Log file rotated out!");
+				FileManager.Rotate(file);
 				return true;
 			}
 			return false;
 		}
 
 		private static void Write(string line) {
-			if (NeedsRotation()) FileManager.Rotate(file);
 			FileManager.Append(file, line);
 		}
 
@@ -60,6 +62,14 @@ namespace Wardrobe {
 
 		public static void Lowest(string line) {
 			Log(line, 0);
+		}
+
+		public static void Separator() {
+			Write(separator);
+		}
+
+		public static void Space() {
+			Write(Environment.NewLine);
 		}
 	}
 
