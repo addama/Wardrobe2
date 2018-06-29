@@ -1,0 +1,25 @@
+﻿int "id"
+
+string "brand"
+string "group"
+string "type"
+string "name"
+string "notes"
+string "material"
+string "pattern"
+string "size"
+string "sleeveLength"
+string "color1"
+string "color2"
+string "color3"
+
+datetime "created"
+datetime "purchased"
+
+decimal "price"
+
+rating "formality"
+rating "warmth"
+rating "fit"
+rating "wear"
+
