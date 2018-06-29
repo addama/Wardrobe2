@@ -7,6 +7,7 @@ namespace Wardrobe {
 			Logger.Info("Wardrobe startup");
 			AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnExit);
 			DatabaseManager db = new DatabaseManager(file);
+			
 			//testLogger();
         }
 
@@ -14,7 +15,7 @@ namespace Wardrobe {
 			Logger.Info("Wardrobe shutdown");
 		}
 
-		static void testLogger() {
+		static void TestLogger() {
 			Logger.Info("Info");
 			Logger.Warn("Warn");
 			Logger.Error("Error");
