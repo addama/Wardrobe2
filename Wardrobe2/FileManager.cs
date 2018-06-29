@@ -58,22 +58,15 @@ namespace Wardrobe {
 
 		public static Dictionary<string, string> GetInfo(string loc) {
 			Dictionary<string, string> info = new Dictionary<string, string>();
-            try {
-                bool exists = File.Exists(loc);
-            } catch (StackOverflowException error) {
-				Logger.Error(error.StackTrace);
-            }
-
-			if (File.Exists(loc)) {
+			try {
 				FileInfo props = new FileInfo(loc);
 				info.Add("FullName", props.FullName);
 				info.Add("CreationTime", props.CreationTime.ToString());
 				info.Add("LastAccessTime", props.LastAccessTime.ToString());
 				info.Add("LastWriteTIme", props.LastWriteTime.ToString());
 				info.Add("Length", props.Length.ToString());
-			} else {
-				Logger.Error("File not found: " + loc);
-				throw new FileNotFoundException("File not found: " + loc);
+			} catch (Exception error) {
+				Logger.Error(error.StackTrace);
 			}
 			return info;
 		}
