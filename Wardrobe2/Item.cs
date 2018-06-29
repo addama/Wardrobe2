@@ -12,8 +12,24 @@ namespace Wardrobe2 {
 
 		}
 
-		public int getRating(string key);
-		public void setRating(string key, int value);
-		public void setRating(string key, string value);
+		public string getProp(string key) {
+			return "";
+		}
+
+		public string setProp(string key, string value) {
+			return "";
+		}
+
+		public string getRating(string key) {
+			return "";
+		}
+
+		public int getRatingIndex(string key) {
+			return 0;
+		}
+
+		public void setRating(string key, int value) {
+
+		}
 	}
 }
