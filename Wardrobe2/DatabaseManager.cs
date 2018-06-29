@@ -83,11 +83,11 @@ namespace Wardrobe {
 			return result;
 		}
 
-		public bool Insert(string table, Dictionary<string, string> row) {
+		public bool Insert(string table, Dictionary<string, dynamic> row) {
 			string columns = "";
 			string values = "";
 
-			foreach (KeyValuePair<String, String> val in row) {
+			foreach (KeyValuePair<string, dynamic> val in row) {
 				columns += String.Format(" {0},", val.Key.ToString());
 				values += String.Format(" '{0}',", val.Value);
 			}
@@ -105,10 +105,10 @@ namespace Wardrobe {
 			return true;
 		}
 
-		public bool Update(string table, Dictionary<string, string> row, string where) {
+		public bool Update(string table, Dictionary<string, dynamic> row, string where) {
 			string vals = "";
 			if (row.Count >= 1) {
-				foreach (KeyValuePair<string, string> val in row) {
+				foreach (KeyValuePair<string, dynamic> val in row) {
 					vals += String.Format(" {0} = '{1}',", val.Key.ToString(), val.Value.ToString());
 				}
 				vals = vals.Substring(0, vals.Length - 1);
