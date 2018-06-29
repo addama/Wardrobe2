@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Outfit.cs" />
+    <Compile Include="Rating.cs" />
+    <Compile Include="Slot.cs" />
+    <Compile Include="WardrobeObjectInterface.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="DatabaseManager.cs" />
     <Compile Include="FileManager.cs" />
@@ -55,10 +59,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="System.Data.SQLite.dll" />
     <Content Include="System.Data.SQLite.xml" />
+    <Content Include="TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

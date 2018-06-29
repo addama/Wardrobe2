@@ -1,7 +1,7 @@
 ﻿int "id"
 
 string "brand"
-string "group"
+string "slot"
 string "type"
 string "name"
 string "notes"
