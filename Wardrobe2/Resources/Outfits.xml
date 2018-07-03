@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xsi:Wardrobe xmlns:xsi="http://www.w3.org/2001/XMLSchema-Instance" xsi:noNamespaceSchemaLocation="Wardrobe.xsd">
+<Outfits>
+	<Outfit>
+		<ID>0</ID>
+		<Name>Test Outfit</Name>
+		<Created>2018-07-03T12:00:00</Created>
+		<Notes>This is a test outfit for XML storage</Notes>
+		<Slots>
+			<Slot name="chest" id="0" />
+			<Slot name="legs" id="1" />
+			<Slot name="feet" id="2" />
+			<Slot name="neck" id="3" />
+		</Slots>
+	</Outfit>
+</Outfits>
+</xsi:Wardrobe>

@@ -1,100 +1,94 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="Wardrobe">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="Items">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element maxOccurs="unbounded" name="Item">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="ID" type="xs:unsignedInt" minOccurs="1" />
-                    <xs:element name="Slot" type="xs:string" minOccurs="1" />
-                    <xs:element name="Name" type="xs:string" minOccurs="1" />
-                    <xs:element name="Brand" type="xs:string" />
-                    <xs:element name="Type" type="xs:string" />
-                    <xs:element name="Created" type="xs:dateTime" minOccurs="1" />
-                    <xs:element name="Purchased" type="xs:dateTime" />
-                    <xs:element name="Notes" type="xs:string" />
-                    <xs:element name="Material" type="xs:string" />
-                    <xs:element name="Pattern" type="xs:string" />
-                    <xs:element name="Size" type="xs:string" />
-                    <xs:element name="SleeveLength" type="xs:string" />
-                    <xs:element name="Price" type="xs:decimal" />
-                    <xs:element name="Colors">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="Color">
-                            <xs:complexType>
-                              <xs:attribute name="name" type="xs:string" use="required" />
-                              <xs:attribute name="hex" type="xs:unsignedInt" use="required" />
-                            </xs:complexType>
-                          </xs:element>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="Ratings">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="Formality">
-                            <xs:complexType>
-                              <xs:attribute name="value" type="xs:unsignedByte" use="required" />
-                            </xs:complexType>
-                          </xs:element>
-                          <xs:element name="Wear">
-                            <xs:complexType>
-                              <xs:attribute name="value" type="xs:unsignedByte" use="required" />
-                            </xs:complexType>
-                          </xs:element>
-                          <xs:element name="Fit">
-                            <xs:complexType>
-                              <xs:attribute name="value" type="xs:unsignedByte" use="required" />
-                            </xs:complexType>
-                          </xs:element>
-                          <xs:element name="Warmth">
-                            <xs:complexType>
-                              <xs:attribute name="value" type="xs:unsignedByte" use="required" />
-                            </xs:complexType>
-                          </xs:element>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Outfits">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Outfit">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="ID" type="xs:unsignedByte" minOccurs="1" />
-                    <xs:element name="Name" type="xs:string" minOccurs="1" />
-                    <xs:element name="Created" type="xs:unsignedInt" minOccurs="1" />
-                    <xs:element name="Notes" type="xs:string" />
-                    <xs:element name="Slots">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element maxOccurs="unbounded" name="Slot">
-                            <xs:complexType>
-                              <xs:attribute name="type" type="xs:string" use="required" />
-                              <xs:attribute name="item" type="xs:unsignedByte" use="required" />
-                            </xs:complexType>
-                          </xs:element>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+<xs:schema id="Wardrobe" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!-- Attributes-->
+	<xs:attribute name="hex" type="xs:string" />
+	<xs:attribute name="id" type="xs:unsignedInt" />
+	<xs:attribute name="name" type="xs:string" />
+	<xs:attribute name="value" type="xs:unsignedByte" />
+	
+	<!-- Elements -->
+	<xs:element name="ID" type="xs:unsignedInt" />
+	<xs:element name="Group" type="xs:string" />
+	<xs:element name="Name" type="xs:string" />
+	<xs:element name="Brand" type="xs:string" />
+	<xs:element name="Type" type="xs:string" />
+	<xs:element name="Created" type="xs:dateTime" />
+	<xs:element name="Purchased" type="xs:dateTime" />
+	<xs:element name="Notes" type="xs:string" />
+	<xs:element name="Material" type="xs:string" />
+	<xs:element name="Pattern" type="xs:string" />
+	<xs:element name="Size" type="xs:string" />
+	<xs:element name="SleeveLength" type="xs:string" />
+	<xs:element name="Price" type="xs:decimal" />
+	
+	<!-- Containers -->
+	<xs:element name="Items">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Item" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Colors">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Color" minOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Ratings">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Rating" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Objects -->
+	<xs:element name="Item">
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="ID" minOccurs="1" />
+				<xs:element ref="Group" minOccurs="1" />
+				<xs:element ref="Name" minOccurs="1" />
+				<xs:element ref="Created" minOccurs="1" />
+				<xs:element ref="Brand" minOccurs="0" />
+				<xs:element ref="Type" minOccurs="0" />
+				<xs:element ref="Purchased" minOccurs="0" />
+				<xs:element ref="Notes" minOccurs="0" />
+				<xs:element ref="Material" minOccurs="0" />
+				<xs:element ref="Pattern" minOccurs="0" />
+				<xs:element ref="Size" minOccurs="0" />
+				<xs:element ref="SleeveLength" minOccurs="0" />
+				<xs:element ref="Price" minOccurs="0" />
+				<xs:element ref="Colors" minOccurs="1" maxOccurs="1" />
+				<xs:element ref="Ratings" minOccurs="1" maxOccurs="1" />
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Color">
+		<xs:complexType>
+			<xs:attribute ref="name" />
+			<xs:attribute ref="hex" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Rating">
+		<xs:complexType>
+			<xs:attribute ref="name" />
+			<xs:attribute ref="value" />
+		</xs:complexType>
+	</xs:element>
+	
+	<!-- Root -->
+	<xs:element name="Wardrobe">
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="Items" maxOccurs="1" />
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
 </xs:schema>

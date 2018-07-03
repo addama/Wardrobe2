@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Wardrobe" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!-- Attributes-->
+	<xs:attribute name="hex" type="xs:string" />
+	<xs:attribute name="id" type="xs:unsignedInt" />
+	<xs:attribute name="name" type="xs:string" />
+	<xs:attribute name="value" type="xs:unsignedByte" />
+
+	<!-- Elements -->
+	<xs:element name="ID" type="xs:unsignedInt" />
+	<xs:element name="Name" type="xs:string" />
+	<xs:element name="Created" type="xs:dateTime" />
+	<xs:element name="Notes" type="xs:string" />
+
+	<!-- Containers -->
+	<xs:element name="Outfits">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Outfit" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Slots">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Slot" minOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Objects -->
+	<xs:element name="Outfit">
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="ID" minOccurs="1" />
+				<xs:element ref="Name" minOccurs="1" />
+				<xs:element ref="Created" minOccurs="1" />
+				<xs:element ref="Notes" minOccurs="0" />
+				<xs:element ref="Slots" minOccurs="1" />
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Slot">
+		<xs:complexType>
+			<xs:attribute ref="name" />
+			<xs:attribute ref="id" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Root -->
+	<xs:element name="Wardrobe">
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="Outfits" maxOccurs="1" />
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
