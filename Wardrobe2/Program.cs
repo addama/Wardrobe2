@@ -1,4 +1,5 @@
-﻿using System;
+﻿// https://sashat.me/2017/01/11/list-of-20-simple-distinct-colors/
+using System;
 
 namespace Wardrobe {
     static class Program {
@@ -9,7 +10,7 @@ namespace Wardrobe {
 			Logger.Info("Wardrobe startup");
 			AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnExit);
 			DatabaseManager db = new DatabaseManager(file);
-			
+			ColorFactory.Initialize();
 			//testLogger();
         }
 

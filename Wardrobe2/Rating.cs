@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Wardrobe2 {
+namespace Wardrobe {
 
 	abstract class Rating {
 		protected int current = 0;

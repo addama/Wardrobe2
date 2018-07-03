@@ -13,6 +13,7 @@ namespace Wardrobe {
 		private static int infoLevel = 0;
 		private static int logLimit = 10485760; // 10mb
 		private static string separator = "--------------------------------------------------------------------------------";
+		private static bool alsoConsole = true;
 
 		private static string FormatLine(string line, string severity = "") {
 			string date = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fff");
@@ -31,6 +32,7 @@ namespace Wardrobe {
 		}
 
 		private static void Write(string line) {
+			if (alsoConsole) Console.WriteLine(line);
 			FileManager.Append(file, line);
 		}
 
@@ -46,6 +48,11 @@ namespace Wardrobe {
 
 		public static void Error(string line) {
 			Log(line, errorLevel);
+		}
+
+		public static void Error(Exception error) {
+			Write(error.Message);
+			Write(error.StackTrace);
 		}
 
 		public static void Info(string line) {
@@ -70,6 +77,10 @@ namespace Wardrobe {
 
 		public static void Space() {
 			Write(Environment.NewLine);
+		}
+		
+		public static void UseConsole(bool toggle) {
+			alsoConsole = toggle;
 		}
 	}
 

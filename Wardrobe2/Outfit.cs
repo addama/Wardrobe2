@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wardrobe2 {
-	class Outfit : WardrobeObjectInterface {
+namespace Wardrobe {
+	class Outfit : IWardrobeObject {
 		public int id { get; private set; }
 		public string name { get; private set; }
-		public Dictionary<string, dynamic> props { get; private set; }
+		public Dictionary<string, string> props { get; private set; }
 		public List<Item> items { get; set; }
 		public Dictionary<string, Rating> ratings { get; private set; }
 
-		public Outfit(int id, string name, Dictionary<string, dynamic> props, List<Item> items) {
+		public Outfit(int id, string name, Dictionary<string, string> props, List<Item> items) {
 			this.id = id;
 			this.name = name;
 			this.props = props;
@@ -21,23 +21,19 @@ namespace Wardrobe2 {
 		}
 
 		public string getProp(string key) {
-			return "";
+			return this.props[key];
 		}
 
-		public string setProp(string key, string value) {
-			return "";
+		public void setProp(string key, string value) {
+			this.props[key] = value;
 		}
 
-		public string getRating(string key) {
-			return "";
+		public void setProp(string key, int value) {
+			this.props[key] = value.ToString();
 		}
 
-		public int getRatingIndex(string key) {
-			return 0;
-		}
-
-		public void setRating(string key, int value) {
-
+		public Dictionary<string, string> getProps() {
+			return this.props;
 		}
 	}
 }

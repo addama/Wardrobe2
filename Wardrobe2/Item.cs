@@ -1,35 +1,59 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Wardrobe2 {
-	class Item : WardrobeObjectInterface {
-		public int id { get; private set; }
-		public string name { get; private set; }
-		public Dictionary<string, dynamic> props { get; private set; }
-		public Dictionary<string, Rating> ratings { get; private set; }
+namespace Wardrobe {
+	abstract class Item : IWardrobeObject {
+		public Slots slot { get; private set; }
+		protected Dictionary<string, string> props { get; private set; }
 
-		public Item(int id, string name, Dictionary<string, dynamic> props) {
-
+		public Item(Slots slot, Dictionary<string, string> props) {
+			this.slot = slot;
+			this.props = props;
 		}
 
 		public string getProp(string key) {
-			return "";
+			return this.props[key];
 		}
 
-		public string setProp(string key, string value) {
-			return "";
+		public void setProp(string key, string value) {
+			this.props[key] = value;
 		}
 
-		public string getRating(string key) {
-			return "";
+		public void setProp(string key, int value) {
+			this.props[key] = value.ToString();
 		}
 
-		public int getRatingIndex(string key) {
-			return 0;
-		}
-
-		public void setRating(string key, int value) {
-
+		public Dictionary<string, string> getProps() {
+			return this.props;
 		}
 	}
+
+	class HeadItem : Item {
+		public HeadItem(Dictionary<string, string> props) : base(Slots.head, props) {}
+	}
+
+	class NeckItem : Item {
+		public NeckItem(Dictionary<string, string> props) : base(Slots.neck, props) {}
+	}
+
+	class ChestItem : Item {
+		public ChestItem(Dictionary<string, string> props) : base(Slots.chest, props) {}
+	}
+
+	class BackItem : Item {
+		public BackItem(Dictionary<string, string> props) : base(Slots.back, props) {}
+	}
+
+	class HandItem : Item {
+		public HandItem(Dictionary<string, string> props) : base(Slots.hand, props) {}
+	}
+
+	class WaistItem : Item {
+		public WaistItem(Dictionary<string, string> props) : base(Slots.waist, props) {}
+	}
+
+	class FeetItem : Item {
+		public FeetItem(Dictionary<string, string> props) : base(Slots.feet, props) {}
+	}
+
 }
