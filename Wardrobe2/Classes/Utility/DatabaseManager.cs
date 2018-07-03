@@ -8,12 +8,12 @@ using System.Collections.Generic;
 
 namespace Wardrobe {
 	
-    class DatabaseManager {
+    internal class DatabaseManager {
 		private SQLiteConnection connection;
 		private string file;
 		private bool isReady = false;
 
-		public DatabaseManager(string file) {
+		internal DatabaseManager(string file) {
 			this.file = file;
 			try {
 				SQLiteConnection.CreateFile(this.file);
@@ -25,11 +25,11 @@ namespace Wardrobe {
 			Logger.Info("DatabaseConnector created");
 		}
 
-		public bool IsReady() {
+		internal bool IsReady() {
 			return this.isReady;
 		}
 
-		public string GetDBFile() {
+		internal string GetDBFile() {
 			return this.file;
 		}
 
@@ -67,7 +67,7 @@ namespace Wardrobe {
 			return rowsUpdated;
 		}
 
-		public DataTable QueryAsTable(string sql) {
+		internal DataTable QueryAsTable(string sql) {
 			DataTable result = new DataTable();
 			try {
 				this.Open();
@@ -83,7 +83,7 @@ namespace Wardrobe {
 			return result;
 		}
 
-		public List<Dictionary<string, string>> Query(string sql) {
+		internal List<Dictionary<string, string>> Query(string sql) {
 			List<Dictionary<string, string>> result = new List<Dictionary<string, string>>();
 			try {
 				this.Open();
@@ -105,7 +105,7 @@ namespace Wardrobe {
 			return result;
 		}
 
-		public bool Insert(string table, Dictionary<string, string> row) {
+		internal bool Insert(string table, Dictionary<string, string> row) {
 			string columns = "";
 			string values = "";
 
@@ -127,7 +127,7 @@ namespace Wardrobe {
 			return true;
 		}
 
-		public bool Update(string table, Dictionary<string, string> row, string where) {
+		internal bool Update(string table, Dictionary<string, string> row, string where) {
 			string vals = "";
 			if (row.Count >= 1) {
 				foreach (KeyValuePair<string, string> val in row) {
@@ -148,7 +148,7 @@ namespace Wardrobe {
 			return true;
 		}
 
-		public bool Delete(string table, string where) {
+		internal bool Delete(string table, string where) {
 			try {
 				this.Write(String.Format("DELETE FROM {0} WHERE {1}", table, where));
 			} catch (Exception error) {

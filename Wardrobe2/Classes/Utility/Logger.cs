@@ -63,14 +63,6 @@ namespace Wardrobe {
 			Log(line, warnLevel);
 		}
 
-		public static void Highest(string line) {
-			Log(line, levels.Count - 1);
-		}
-
-		public static void Lowest(string line) {
-			Log(line, 0);
-		}
-
 		public static void Separator() {
 			Write(separator);
 		}

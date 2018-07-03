@@ -6,11 +6,26 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7107AF24-DB3E-4E8B-8B21-8A91DFFC3B67}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Wardrobe2</RootNamespace>
+    <RootNamespace>Wardrobe</RootNamespace>
     <AssemblyName>Wardrobe2</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -18,7 +33,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -49,36 +64,58 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Color.cs" />
-    <Compile Include="ItemProps.cs" />
-    <Compile Include="Outfit.cs" />
-    <Compile Include="OutfitProps.cs" />
-    <Compile Include="IProps.cs" />
-    <Compile Include="Rating.cs" />
-    <Compile Include="Slot.cs" />
-    <Compile Include="IWardrobeObject.cs" />
-    <Compile Include="Item.cs" />
-    <Compile Include="DatabaseManager.cs" />
-    <Compile Include="FileManager.cs" />
-    <Compile Include="Logger.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Classes\Program\Color.cs" />
+    <Compile Include="Enums\ColorEnum.cs" />
+    <Compile Include="Classes\Program\ItemProps.cs" />
+    <Compile Include="Classes\Program\Outfit.cs" />
+    <Compile Include="Classes\Program\OutfitProps.cs" />
+    <Compile Include="Interfaces\IProps.cs" />
+    <Compile Include="Classes\Program\Rating.cs" />
+    <Compile Include="Classes\Program\Slot.cs" />
+    <Compile Include="Interfaces\IWardrobeObject.cs" />
+    <Compile Include="Classes\Program\Item.cs" />
+    <Compile Include="Classes\Utility\DatabaseManager.cs" />
+    <Compile Include="Classes\Utility\FileManager.cs" />
+    <Compile Include="Classes\Utility\Logger.cs" />
+    <Compile Include="Classes\Program\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XMLManager.cs" />
+    <Compile Include="Classes\Utility\XMLManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="docs\README.md" />
+    <None Include="Documentation\README.md" />
+    <None Include="Resources\Outfits.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Wardrobe.json" />
+    <None Include="Resources\Items.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Colors.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Resources\Outfits.xml" />
+    <Content Include="Resources\Items.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="System.Data.SQLite.dll" />
     <Content Include="System.Data.SQLite.xml" />
-    <Content Include="docs\columns.txt" />
+    <Content Include="Documentation\columns.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="data\" />
+    <Folder Include="Classes\Presentation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

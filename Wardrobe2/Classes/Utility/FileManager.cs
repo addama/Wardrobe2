@@ -4,9 +4,9 @@ using System.IO;
 
 namespace Wardrobe {
 
-	static class FileManager {
+	internal static class FileManager {
 
-		public static string ReadAll(string file) {
+		internal static string ReadAll(string file) {
 			string contents = "";
 			try {
 				Validate(file);
@@ -19,7 +19,7 @@ namespace Wardrobe {
 			return contents;
 		}
 
-		public static List<string> ReadLines(string file) {
+		internal static List<string> ReadLines(string file) {
 			List<string> lines = new List<string>();
 			try {
 				Validate(file);
@@ -34,7 +34,7 @@ namespace Wardrobe {
 			return lines;
 		}
 
-		public static bool Overwrite(string file, string contents) {
+		internal static bool Overwrite(string file, string contents) {
 			try {
 				Validate(file);
 				TextWriter w = new StreamWriter(file, false);
@@ -47,7 +47,7 @@ namespace Wardrobe {
 			return true;
 		}
 
-		public static bool Append(string file, string contents) {
+		internal static bool Append(string file, string contents) {
 			try {
 				Validate(file);
 				TextWriter w = new StreamWriter(file, true);
@@ -60,7 +60,7 @@ namespace Wardrobe {
 			return true;
 		}
 
-		public static Dictionary<string, string> GetInfo(string file) {
+		internal static Dictionary<string, string> GetInfo(string file) {
 			Dictionary<string, string> info = new Dictionary<string, string>();
 			try {
 				Validate(file);
@@ -76,7 +76,7 @@ namespace Wardrobe {
 			return info;
 		}
 
-		public static bool Validate(string file) {
+		internal static bool Validate(string file) {
 			try {
 				string exact = Path.GetFullPath(file);
 				if (!File.Exists(exact)) {
@@ -97,7 +97,7 @@ namespace Wardrobe {
 			}
 		}
 
-		public static void Rotate(string file) {
+		internal static void Rotate(string file) {
 			string newName = file + "." + DateTime.Now.ToString("yyyyMMddTHHmmss");
 			Validate(file);
 			Rename(file, newName);

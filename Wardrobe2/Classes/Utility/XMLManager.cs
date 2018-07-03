@@ -18,6 +18,10 @@ namespace Wardrobe {
 
 			return doc;
 		}
+
+		public static void Query(XDocument source, string type, string where) {
+
+		}
 	}
 
 }

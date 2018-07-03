@@ -10,7 +10,6 @@ namespace Wardrobe {
 			Logger.Info("Wardrobe startup");
 			AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnExit);
 			DatabaseManager db = new DatabaseManager(file);
-			ColorFactory.Initialize();
 			//testLogger();
         }
 
@@ -22,8 +21,6 @@ namespace Wardrobe {
 			Logger.Info("Info");
 			Logger.Warn("Warn");
 			Logger.Error("Error");
-			Logger.Lowest("Lowest");
-			Logger.Highest("Highest");
 			Logger.Log("Direct to Highest", 3);
 			Logger.Log("Custom severity", "Custom"); 
 		}
