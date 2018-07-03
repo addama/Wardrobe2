@@ -67,7 +67,7 @@ namespace Wardrobe {
 			return rowsUpdated;
 		}
 
-		public DataTable Query(string sql) {
+		public DataTable QueryAsTable(string sql) {
 			DataTable result = new DataTable();
 			try {
 				this.Open();
@@ -83,12 +83,34 @@ namespace Wardrobe {
 			return result;
 		}
 
-		public bool Insert(string table, Dictionary<string, dynamic> row) {
+		public List<Dictionary<string, string>> Query(string sql) {
+			List<Dictionary<string, string>> result = new List<Dictionary<string, string>>();
+			try {
+				this.Open();
+				SQLiteCommand query = new SQLiteCommand(this.connection);
+				query.CommandText = sql;
+				SQLiteDataReader reader = query.ExecuteReader();
+				while (reader.Read()) {
+					Dictionary<string, string> row = new Dictionary<string, string>();
+					for (int i = 0; i < reader.FieldCount; i++) {
+						string column = reader.GetName(i);
+						row.Add(column, reader[column].ToString());
+					}
+					result.Add(row);
+				}
+				this.Close();
+			} catch (Exception error) {
+				Logger.Error(error.StackTrace);
+			}
+			return result;
+		}
+
+		public bool Insert(string table, Dictionary<string, string> row) {
 			string columns = "";
 			string values = "";
 
-			foreach (KeyValuePair<string, dynamic> val in row) {
-				columns += String.Format(" {0},", val.Key.ToString());
+			foreach (KeyValuePair<string, string> val in row) {
+				columns += String.Format(" {0},", val.Key);
 				values += String.Format(" '{0}',", val.Value);
 			}
 
@@ -105,11 +127,11 @@ namespace Wardrobe {
 			return true;
 		}
 
-		public bool Update(string table, Dictionary<string, dynamic> row, string where) {
+		public bool Update(string table, Dictionary<string, string> row, string where) {
 			string vals = "";
 			if (row.Count >= 1) {
-				foreach (KeyValuePair<string, dynamic> val in row) {
-					vals += String.Format(" {0} = '{1}',", val.Key.ToString(), val.Value.ToString());
+				foreach (KeyValuePair<string, string> val in row) {
+					vals += String.Format(" {0} = '{1}',", val.Key, val.Value);
 				}
 				vals = vals.Substring(0, vals.Length - 1);
 
