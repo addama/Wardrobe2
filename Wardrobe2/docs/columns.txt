@@ -1,0 +1,76 @@
+﻿[items]
+	required int id
+	required string slot
+	required string type
+	required string name
+	required datetime created
+
+[itemprops]
+	required int id -> [items].id
+	optional string brand
+	optional string notes
+	optional string material
+	optional string pattern
+	optional string size
+	optional string sleeveLength
+	optional datetime purchased
+	optional decimal price
+	required string color1
+	optional string color2
+	optional string color3
+	optional rating formality
+	optional rating warmth
+	optional rating fit
+	optional rating wear
+
+[outfits]
+	required int id
+	optional string name
+	required datetime created
+
+[outfitprops]
+	required int id -> [outfits].id
+	required int slot
+	required int [items].id
+
+
+
+--------
+
+SLOTS
+	head
+	neck
+	back
+	chest
+	wrist
+	hand
+	waist
+	legs
+	feet
+
+TYPES
+	head
+		baseball brimmed beanie sunglasses earring
+	hand
+		ring bracelet gloves watch  
+	neck
+		necklace tie scarf
+	waist
+		belt fannypack
+	outer
+		snow lightweight rain hoodie sweatshirt vest suitjacket blazer sweater cardigan
+	chest
+		 tshirt tanktop polo buttonup
+	legs
+		jeans jogger shorts trunks pajama khaki slacks
+	feet
+		sport boot sandal fashion formal
+
+SLEEVELENGTHS
+	"none", "short", "middle", "long"
+
+MATERIALS
+	"cotton", "wool", "denim", "canvas", "linen", "leather", "suede/nubuck", "polyester", "silk", "nylon", "velvet", "satin", "blend", "unknown", "metal", "fur", "blend", "plastic", "rubber"
+
+
+	

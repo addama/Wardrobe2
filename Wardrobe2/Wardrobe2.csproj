@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Wardrobe.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,25 +49,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Color.cs" />
+    <Compile Include="ItemProps.cs" />
     <Compile Include="Outfit.cs" />
+    <Compile Include="OutfitProps.cs" />
+    <Compile Include="IProps.cs" />
     <Compile Include="Rating.cs" />
     <Compile Include="Slot.cs" />
-    <Compile Include="WardrobeObjectInterface.cs" />
+    <Compile Include="IWardrobeObject.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="DatabaseManager.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XMLManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="README.md" />
+    <None Include="docs\README.md" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Colors.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="System.Data.SQLite.dll" />
     <Content Include="System.Data.SQLite.xml" />
-    <Content Include="TextFile1.txt" />
+    <Content Include="docs\columns.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
