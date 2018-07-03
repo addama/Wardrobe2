@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Wardrobe>
+  <Items>
+    <Item>
+      <ID>0</ID>
+      <Slot>Chest</Slot>
+      <Name>Chili Heather Carhartt Shirt</Name>
+      <Brand>Carhartt</Brand>
+      <Type>TShirt</Type>
+      <Created>1234567890</Created>
+      <Purchased>1234567890</Purchased>
+      <Notes>This is a test item for XML storage</Notes>
+      <Material>Cotton</Material>
+      <Pattern>Heather</Pattern>
+      <Size>XL</Size>
+      <SleeveLength>Short</SleeveLength>
+      <Price>19.90</Price>
+      <Colors>
+        <Color name="orange" hex="f58231" />
+      </Colors>
+      <Ratings>
+        <Formality value="0" />
+        <Wear value="1" />
+        <Fit value="3" />
+        <Warmth value="1" />
+      </Ratings>
+    </Item>
+    <Item>
+      <ID>0</ID>
+      <Slot>Chest</Slot>
+      <Name>Chili Heather Carhartt Shirt</Name>
+      <Brand>Carhartt</Brand>
+      <Type>TShirt</Type>
+      <Created>1234567890</Created>
+      <Purchased>1234567890</Purchased>
+      <Notes>This is a test item for XML storage</Notes>
+      <Material>Cotton</Material>
+      <Pattern>Heather</Pattern>
+      <Size>XL</Size>
+      <SleeveLength>Short</SleeveLength>
+      <Price>19.90</Price>
+      <Colors>
+        <Color name="orange" hex="f58231" />
+      </Colors>
+      <Ratings>
+        <Formality value="0" />
+        <Wear value="1" />
+        <Fit value="3" />
+        <Warmth value="1" />
+      </Ratings>
+    </Item>
+    <Item>
+      <ID>0</ID>
+      <Slot>Chest</Slot>
+      <Name>Chili Heather Carhartt Shirt</Name>
+      <Brand>Carhartt</Brand>
+      <Type>TShirt</Type>
+      <Created>1234567890</Created>
+      <Purchased>1234567890</Purchased>
+      <Notes>This is a test item for XML storage</Notes>
+      <Material>Cotton</Material>
+      <Pattern>Heather</Pattern>
+      <Size>XL</Size>
+      <SleeveLength>Short</SleeveLength>
+      <Price>19.90</Price>
+      <Colors>
+        <Color name="orange" hex="f58231" />
+      </Colors>
+      <Ratings>
+        <Formality value="0" />
+        <Wear value="1" />
+        <Fit value="3" />
+        <Warmth value="1" />
+      </Ratings>
+    </Item>
+    <Item>
+      <ID>0</ID>
+      <Slot>Chest</Slot>
+      <Name>Chili Heather Carhartt Shirt</Name>
+      <Brand>Carhartt</Brand>
+      <Type>TShirt</Type>
+      <Created>1234567890</Created>
+      <Purchased>1234567890</Purchased>
+      <Notes>This is a test item for XML storage</Notes>
+      <Material>Cotton</Material>
+      <Pattern>Heather</Pattern>
+      <Size>XL</Size>
+      <SleeveLength>Short</SleeveLength>
+      <Price>19.90</Price>
+      <Colors>
+        <Color name="orange" hex="f58231" />
+      </Colors>
+      <Ratings>
+        <Formality value="0" />
+        <Wear value="1" />
+        <Fit value="3" />
+        <Warmth value="1" />
+      </Ratings>
+    </Item>
+  </Items>
+  <Outfits>
+    <Outfit>
+      <ID>0</ID>
+      <Name>Test Outfit</Name>
+      <Created>1234567890</Created>
+      <Notes>This is a test outfit for XML storage</Notes>
+      <Slots>
+        <Slot type="chest" item="0" />
+        <Slot type="legs" item="1" />
+        <Slot type="feet" item="2" />
+        <Slot type="neck" item="3" />
+      </Slots>
+    </Outfit>
+  </Outfits>
+</Wardrobe>
