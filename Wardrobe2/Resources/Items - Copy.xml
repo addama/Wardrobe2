@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xsi:Wardrobe xmlns:xsi="http://www.w3.org/2001/XMLSchema-Instance" xsi:noNamespaceSchemaLocation="Items.xsd">
+	<Items>
+		<Item id="0" group="Chest" name="Chili Heather Carhartt Shirt" brand="Carhartt" type="Tshirt" created="2018-07-03T12:00:00" purchased="2018-07-03T12:00:00" material="Cotton" pattern="Heather" size="XL" sleeve="Short" price="19.90">
+			<Notes>This is a test item for XML storage</Notes>
+			<Colors>
+				<Color name="orange" hex="f58231" />
+			</Colors>
+			<Ratings>
+				<Rating name="formality" value="0" />
+				<Rating name="wear" value="1" />
+				<Rating name="fit" value="3" />
+				<Rating name="warmth" value="1" />
+			</Ratings>
+		</Item>
+		<Item id="1" group="Legs" name="Black Stretch Skinny Old Navy Jeans" brand="Old Navy" type="Jeans" created="2018-07-03T12:00:00" purchased="2018-07-03T12:00:00" material="Jean" size="38" price="38.00">
+			<Notes>This is a test item for XML storage</Notes>
+			<Colors>
+				<Color name="black" hex="000000" />
+			</Colors>
+			<Ratings>
+				<Rating name="formality" value="0" />
+				<Rating name="wear" value="1" />
+				<Rating name="fit" value="3" />
+				<Rating name="warmth" value="1" />
+			</Ratings>
+		</Item>
+		<Item id="0" group="Chest" name="Chili Heather Carhartt Shirt" brand="Carhartt" type="Tshirt" created="2018-07-03T12:00:00" purchased="2018-07-03T12:00:00" material="Cotton" pattern="Heather" size="XL" sleeve="Short" price="19.90">
+			<Notes>This is a test item for XML storage</Notes>
+			<Colors>
+				<Color name="orange" hex="f58231" />
+			</Colors>
+			<Ratings>
+				<Rating name="formality" value="0" />
+				<Rating name="wear" value="1" />
+				<Rating name="fit" value="3" />
+				<Rating name="warmth" value="1" />
+			</Ratings>
+		</Item>
+		<Item id="0" group="Chest" name="Chili Heather Carhartt Shirt" brand="Carhartt" type="Tshirt" created="2018-07-03T12:00:00" purchased="2018-07-03T12:00:00" material="Cotton" pattern="Heather" size="XL" sleeve="Short" price="19.90">
+			<Notes>This is a test item for XML storage</Notes>
+			<Colors>
+				<Color name="orange" hex="f58231" />
+			</Colors>
+			<Ratings>
+				<Rating name="formality" value="0" />
+				<Rating name="wear" value="1" />
+				<Rating name="fit" value="3" />
+				<Rating name="warmth" value="1" />
+			</Ratings>
+		</Item>
+		<Item id="0" group="Chest" name="Chili Heather Carhartt Shirt" brand="Carhartt" type="Tshirt" created="2018-07-03T12:00:00" purchased="2018-07-03T12:00:00" material="Cotton" pattern="Heather" size="XL" sleeve="Short" price="19.90">
+			<Notes>This is a test item for XML storage</Notes>
+			<Colors>
+				<Color name="orange" hex="f58231" />
+			</Colors>
+			<Ratings>
+				<Rating name="formality" value="0" />
+				<Rating name="wear" value="1" />
+				<Rating name="fit" value="3" />
+				<Rating name="warmth" value="1" />
+			</Ratings>
+		</Item>
+	</Items>
+</xsi:Wardrobe>

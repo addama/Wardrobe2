@@ -1,0 +1,112 @@
+﻿{
+    "Wardrobe": {
+        "Items": [
+            {
+                "ID": 0,
+                "Group": "Chest",
+                "Name": "",
+                "Type": "",
+                "Created": "",
+                "Purchased": "",
+                "Notes": "",
+                "Material": "",
+                "Pattern": "",
+                "Size": "",
+                "SleeveLength": "",
+                "Price": "",
+                "Colors": [
+                    { "Name": "orange", "Hex": 0xf58231 }
+                ],
+                "Ratings": [
+                    { "Name": "formality", "Value": 1 },
+                    { "Name": "fit", "Value": 1 },
+                    { "Name": "wear", "Value": 1 },
+                    { "Name": "warmth", "Value": 1 }
+                ]
+            },
+            {
+                "ID": 1,
+                "Group": "Chest",
+                "Name": "",
+                "Type": "",
+                "Created": "",
+                "Purchased": "",
+                "Notes": "",
+                "Material": "",
+                "Pattern": "",
+                "Size": "",
+                "SleeveLength": "",
+                "Price": "",
+                "Colors": [
+                    { "Name": "orange", "Hex": 0xf58231 }
+                ],
+                "Ratings": [
+                    { "Name": "formality", "Value": 1 },
+                    { "Name": "fit", "Value": 1 },
+                    { "Name": "wear", "Value": 1 },
+                    { "Name": "warmth", "Value": 1 }
+                ]
+            },
+            {
+                "ID": 2,
+                "Group": "Chest",
+                "Name": "",
+                "Type": "",
+                "Created": "",
+                "Purchased": "",
+                "Notes": "",
+                "Material": "",
+                "Pattern": "",
+                "Size": "",
+                "SleeveLength": "",
+                "Price": "",
+                "Colors": [
+                    { "Name": "orange", "Hex": 0xf58231 }
+                ],
+                "Ratings": [
+                    { "Name": "formality", "Value": 1 },
+                    { "Name": "fit", "Value": 1 },
+                    { "Name": "wear", "Value": 1 },
+                    { "Name": "warmth", "Value": 1 }
+                ]
+            },
+            {
+                "ID": 3,
+                "Group": "Chest",
+                "Name": "",
+                "Type": "",
+                "Created": "",
+                "Purchased": "",
+                "Notes": "",
+                "Material": "",
+                "Pattern": "",
+                "Size": "",
+                "SleeveLength": "",
+                "Price": "",
+                "Colors": [
+                    { "Name": "orange", "Hex": 0xf58231 }
+                ],
+                "Ratings": [
+                    { "Name": "formality", "Value": 1 },
+                    { "Name": "fit", "Value": 1 },
+                    { "Name": "wear", "Value": 1 },
+                    { "Name": "warmth", "Value": 1 }
+                ]
+            },
+        ],
+        "Outfits": [
+            {
+                "ID": 0,
+                "Name": "",
+                "Created": "",
+                "Notes": "",
+                "Slots": [
+                    { "Group": "", "ID": 0 },
+                    { "Group": "", "ID": 0 },
+                    { "Group": "", "ID": 0 },
+                    { "Group": "", "ID": 0 }
+                ]
+            }
+        ]
+    }
+}
