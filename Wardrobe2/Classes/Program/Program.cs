@@ -9,6 +9,7 @@ namespace Wardrobe {
 			Logger.Info("Wardrobe startup");
 			AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnExit);
 			Database.Connect(Constants.databaseFile);
+			
 			DatabaseManager.InitializeDatabase();
 			//testLogger();
         }

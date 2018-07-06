@@ -75,8 +75,6 @@ namespace Wardrobe {
 		internal static bool InitializeDatabase() {
 			bool check = Database.CheckTable(itemsTable);
 			Logger.Info("Table check " + check);
-			check = Database.CheckTable(itemsTable);
-			Logger.Info("Table recheck " + check);
 			if (!check) {
 				string sql = FileManager.ReadAll(Constants.databaseInitSQL);
 				int rows = Database.Write(sql);

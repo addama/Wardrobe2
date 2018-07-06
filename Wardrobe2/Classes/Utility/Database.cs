@@ -59,6 +59,7 @@ namespace Wardrobe {
 		private static SQLiteDataReader GetReader(string sql) {
 			Open();
 			SQLiteCommand query = new SQLiteCommand(connection);
+			System.Threading.Thread.Sleep(5000);
 			query.CommandText = sql;
 			SQLiteDataReader reader = query.ExecuteReader();
 			return reader;
