@@ -7,6 +7,12 @@ namespace Wardrobe {
 		public Dictionary<string, string> props { get; private set; }
 		public List<Item> items { get; set; }
 
+		public Outfit(Dictionary<string, string> props) {
+			this.props = props;
+			this.items = new List<Item>();
+			this.ValidateProps();
+		}
+
 		public Outfit(Dictionary<string, string> props, List<Item> items) {
 			this.props = props;
 			this.items = items;
@@ -57,6 +63,9 @@ namespace Wardrobe {
 			this.items.Remove(item);
 		}
 
+		public int CountItems() {
+			return this.items.Count;
+		}
 	}
 
 }

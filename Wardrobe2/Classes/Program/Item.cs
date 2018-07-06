@@ -48,6 +48,10 @@ namespace Wardrobe {
 			return this.GetProp("slot");
 		}
 
+		public List<Item> GetItems() {
+			return new List<Item>() { this };
+		}
+
 	}
 
 }

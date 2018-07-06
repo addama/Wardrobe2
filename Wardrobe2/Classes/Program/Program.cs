@@ -11,29 +11,44 @@ namespace Wardrobe {
 			Database.Connect(Constants.databaseFile);
 			AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnExit);
 			DatabaseManager.InitializeDatabase();
-			MakeItem();
-			MakeItem();
+			//Test();
         }
 
-		static void MakeItem() {
+		static void Test() {
+			Item item = MakeItem();
+			DatabaseManager.Create<Item>(item);
+			DatabaseManager.Create<Outfit>(MakeOutfit(item));
+		}
+
+		static Item MakeItem() {
 			Dictionary<string, string> props = new Dictionary<string, string>() {
-				//{ "id", "0" },
 				{ "slot", "chest" },
 				{ "type", "tshirt" },
 				{ "name", "Chili Heather Carhartt Tshirt" },
 				{ "created", DatabaseManager.GetDateTime() },
 				{ "size", "XL" },
 				{ "formality", "casual" },
+				{ "color1", "red" }
 			};
 			Item item = new Item(props);
-			DatabaseManager.Create<Item>(item);
-			List<Item> items = DatabaseManager.GetAll<Item>();
-			foreach (Item x in items) {
-				Logger.Info(x.GetProp("id") + " " + x.GetProp("name"));
-			}
+			return item;
+		}
+
+		static Outfit MakeOutfit(Item item) {
+			Dictionary<string, string> props = new Dictionary<string, string>() {
+				{ "type", "casual" },
+				{ "name", "Test outfit" },
+				{ "created", DatabaseManager.GetDateTime() },
+			};
+			List<Item> items = new List<Item>() {
+				item
+			};
+			Outfit outfit = new Outfit(props, items);
+			return outfit;
 		}
 
 		static void OnExit(object sender, EventArgs e) {
+			Database.Cleanup();
 			Logger.Info("Wardrobe shutdown");
 		}
 

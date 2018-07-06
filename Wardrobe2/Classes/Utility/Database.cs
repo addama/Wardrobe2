@@ -58,24 +58,24 @@ namespace Wardrobe {
 		private static SQLiteDataReader GetReader(string sql) {
 			Open();
 			SQLiteCommand query = new SQLiteCommand(connection);
-			System.Threading.Thread.Sleep(5000);
 			query.CommandText = sql;
 			SQLiteDataReader reader = query.ExecuteReader();
 			return reader;
 		}
 
 		internal static int Write(string sql) {
-			int rowsUpdated = 0;
+			int id = -1;
 			try {
 				Open();
 				SQLiteCommand query = new SQLiteCommand(connection);
 				query.CommandText = sql;
-				rowsUpdated = query.ExecuteNonQuery();
+				query.ExecuteNonQuery();
+				id = (int)connection.LastInsertRowId;
 				Close();
 			} catch (Exception error) {
 				Logger.Error(error);
 			}
-			return rowsUpdated;
+			return id;
 		}
 
 		internal static DataTable QueryAsTable(string sql) {
@@ -111,7 +111,8 @@ namespace Wardrobe {
 			return result;
 		}
 
-		internal static bool Insert(string table, Dictionary<string, string> row) {
+		internal static int Insert(string table, Dictionary<string, string> row) {
+			int id = -1;
 			string columns = "";
 			string values = "";
 
@@ -126,13 +127,12 @@ namespace Wardrobe {
 			string sql = String.Format("INSERT INTO {0}({1}) values({2})", table, columns, values);
 			Logger.Info(table + " " + sql);
 			try {
-				Write(sql);
+				id = Write(sql);
 			} catch (Exception error) {
 				Logger.Error(error);
-				return false;
 			}
 
-			return true;
+			return id;
 		}
 
 		internal static bool Update(string table, Dictionary<string, string> row, string where) {
@@ -208,6 +208,11 @@ namespace Wardrobe {
 				Logger.Error(error);
 			}
 			return result;
+		}
+
+		internal static void Cleanup() {
+			Logger.Info("Vacuuming database");
+			Write("VACUUM;");
 		}
 	}
 

@@ -73,7 +73,6 @@
     <Compile Include="Classes\Program\Interfaces\IWardrobeObject.cs" />
     <Compile Include="Classes\Program\Item.cs" />
     <Compile Include="Classes\Utility\Database.cs" />
-    <Compile Include="Classes\Utility\DBTest.cs" />
     <Compile Include="Classes\Utility\FileManager.cs" />
     <Compile Include="Classes\Utility\Logger.cs" />
     <Compile Include="Classes\Program\Program.cs" />

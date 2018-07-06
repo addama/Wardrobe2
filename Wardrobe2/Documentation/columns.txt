@@ -73,4 +73,8 @@ MATERIALS
 	"cotton", "wool", "denim", "canvas", "linen", "leather", "suede/nubuck", "polyester", "silk", "nylon", "velvet", "satin", "blend", "unknown", "metal", "fur", "blend", "plastic", "rubber"
 
 
-	
+Item is created
+Item is saved to database
+Outfit is created
+Outfit is saved to database
+Items are added to Outfit

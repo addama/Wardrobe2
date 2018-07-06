@@ -9,6 +9,7 @@ namespace Wardrobe {
 		void SetProp(string key, int value);
 		Dictionary<string, string> GetProps();
 		bool ValidateProps();
+		List<Item> GetItems();
 	}
 
 }

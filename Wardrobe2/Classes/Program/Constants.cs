@@ -96,7 +96,7 @@ namespace Wardrobe {
 		internal static readonly int week = day * 7;
 
 		// File Locations
-		internal static readonly string databaseFile = ".\\wardrobe.db3";
+		internal static readonly string databaseFile = ".\\wardrobe.db";
 		internal static readonly string databaseInitSQL = ".\\Resources\\InitializeTables.sql";
 		internal static readonly string logFile = ".\\Logs\\wardrobe.log";
 	}
