@@ -137,21 +137,25 @@ namespace Wardrobe {
 		}
 
 		internal static void AddOutfitItems(Outfit outfit) {
-			// Assumption: The Items being associated are already defined
 			List<Item> items = outfit.GetItems();
 			if (items.Count > 0) {
 				foreach (Item item in items) {
-					int id = -1;
-					string oID = outfit.GetProp("id");
-					string iID = item.GetProp("id");
-					Dictionary<string, string> props = new Dictionary<string, string>() {
-						{ "outfit",  oID},
-						{ "item",  iID}
-					};
-					id = Database.Insert(slotsTable, props);
-					Logger.Info("Associated Item " + iID + " with Outfit " + oID + " with a row of " + id );
+					AddOutfitItems(outfit, item);
 				}
 			}
+		}
+
+		internal static void AddOutfitItems(Outfit outfit, Item item) {
+			// Assumption: The Items being associated are already defined
+			int id = -1;
+			string oID = outfit.GetProp("id");
+			string iID = item.GetProp("id");
+			Dictionary<string, string> props = new Dictionary<string, string>() {
+				{ "outfit",  oID},
+				{ "item",  iID}
+			};
+			id = Database.Insert(slotsTable, props);
+			Logger.Info("Associated Item " + iID + " with Outfit " + oID + " with a row of " + id);
 		}
 
 		// Database methods

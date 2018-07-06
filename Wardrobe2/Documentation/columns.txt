@@ -78,3 +78,35 @@ Item is saved to database
 Outfit is created
 Outfit is saved to database
 Items are added to Outfit
+
+The application is opened
+The first thing that is displayed is a big-panel home page with the following big panel buttons:
+	Items - disabled if no items exist
+	Outfits - disabled if no outfits exist
+	Add Item
+	Add Outfit - disabled if no items exist
+The user wants to add an item, so they click the Add Item button
+The Add Item page is shown, which has the following elements in it:
+	Editable fields
+		* Group/Slot - dropdown
+		* Type - dropdown, changes depending on Group/Slot choice
+		* Name
+		Brand
+		Notes - text block
+		Material - dropdown
+		Pattern - dropdown
+		Size
+		Purchased - date picker
+		Price
+		Sleeve Length - if Group/Slot is "Chest"
+		Formality - dropdown
+		Fit - dropdown
+		Wear - dropdown
+		Warmth - dropdown
+		* Color1 - color picker
+		Color2 - color picker
+		Color3 - color picker
+	Create Item button
+The user fills out the Item details they have or care about beyond the required fields, and clicks the Create Item button
+The Item is created in the database
+The application displays the Items page
