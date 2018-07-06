@@ -5,7 +5,6 @@ using System;
 using System.Data;
 using System.Data.SQLite;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Wardrobe {
 	
@@ -18,8 +17,7 @@ namespace Wardrobe {
 		internal static void Connect(string file) {
 			dbFile = file;
 			try {
-				SQLiteConnection.CreateFile(file);
-				connection = new SQLiteConnection("Data Source=" + file + ";Version=3;");
+				connection = new SQLiteConnection("Data Source=" + file + ";Version=3;Pooling=True;Read Only=False;");
 			} catch (Exception error) {
 				Logger.Error(error);
 			} finally {
@@ -47,6 +45,7 @@ namespace Wardrobe {
 		private static bool Close() {
 			try {
 				connection.Close();
+				connection.Dispose();
 			} catch (Exception error) {
 				Logger.Error(error);
 				return false;
@@ -116,15 +115,17 @@ namespace Wardrobe {
 			string values = "";
 
 			foreach (KeyValuePair<string, string> val in row) {
-				columns += String.Format(" {0},", val.Key);
-				values += String.Format(" '{0}',", val.Value);
+				columns += String.Format("{0},", val.Key);
+				values += String.Format("'{0}',", val.Value);
 			}
 
 			columns = columns.Substring(0, columns.Length - 1);
 			values = values.Substring(0, values.Length - 1);
 
+			string sql = String.Format("INSERT INTO {0}({1}) values({2})", table, columns, values);
+			Logger.Info(table + " " + sql);
 			try {
-				Write(String.Format("INSERT INTO {0}({1}) values({2})", table, columns, values));
+				Write(sql);
 			} catch (Exception error) {
 				Logger.Error(error);
 				return false;
@@ -172,7 +173,7 @@ namespace Wardrobe {
 				SQLiteCommand query = new SQLiteCommand(connection);
 				query.CommandText = sql;
 				string check = (string)query.ExecuteScalar();
-				Logger.Info("Check " + check);
+				if (check == table) result = true;
 				Close();
 			} catch (Exception error) {
 				Logger.Error(error);
