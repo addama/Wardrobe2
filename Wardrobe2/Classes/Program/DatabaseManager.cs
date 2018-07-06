@@ -21,8 +21,8 @@ namespace Wardrobe {
 		private static string GetTableByType<T>() {
 			string table = "";
 			switch (typeof(T).ToString()) {
-				case "Item": table = itemsTable; break;
-				case "Outfit": table = outfitsTable; break;
+				case "Wardrobe.Item": table = itemsTable; break;
+				case "Wardrobe.Outfit": table = outfitsTable; break;
 			}
 			return table;
 		}
@@ -72,16 +72,14 @@ namespace Wardrobe {
 		}
 
 		// Database methods
-		internal static bool InitializeDatabase() {
-			bool check = Database.CheckTable(itemsTable);
-			Logger.Info("Table check " + check);
-			if (!check) {
-				string sql = FileManager.ReadAll(Constants.databaseInitSQL);
-				int rows = Database.Write(sql);
-				if (rows == 0) return false;
-			}
+		internal static void InitializeDatabase() {
+			string sql = FileManager.ReadAll(Constants.databaseInitSQL);
+			int rows = Database.Write(sql);
+			Logger.Info("Database tables okay " + rows);
+		}
 
-			return true;
+		internal static string GetDateTime() {
+			return DateTime.Now.ToString("s");
 		}
 	}
 

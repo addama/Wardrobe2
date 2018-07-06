@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Linq;
 using System.IO;
 using System.Globalization;
@@ -19,8 +20,23 @@ namespace Wardrobe {
 			return doc;
 		}
 
-		internal static void Query(XDocument source, string type, string where) {
-			
+		internal static void Query(XDocument source, string column, string value) {
+			var query = from t in source.Descendants("Items") 
+						where t.Element(column).Value == value
+						select t;
+			//return query.
+		}
+
+		internal static void Insert(XDocument source, Dictionary<string, string> row) {
+
+		}
+
+		internal static void Update(XDocument source, Dictionary<string, string> row, string where) {
+
+		}
+
+		internal static void Count(XDocument source, string where) {
+
 		}
 	}
 
