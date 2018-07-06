@@ -65,17 +65,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Program\Color.cs" />
-    <Compile Include="Enums\ColorEnum.cs" />
-    <Compile Include="Classes\Program\ItemProps.cs" />
+    <Compile Include="Classes\Program\DatabaseManager.cs" />
     <Compile Include="Classes\Program\Outfit.cs" />
-    <Compile Include="Classes\Program\OutfitProps.cs" />
-    <Compile Include="Interfaces\IProps.cs" />
+    <Compile Include="Classes\Program\Constants.cs" />
     <Compile Include="Classes\Program\Rating.cs" />
     <Compile Include="Classes\Program\Slot.cs" />
-    <Compile Include="Interfaces\IWardrobeObject.cs" />
+    <Compile Include="Classes\Program\Interfaces\IWardrobeObject.cs" />
     <Compile Include="Classes\Program\Item.cs" />
-    <Compile Include="Classes\Utility\DatabaseManager.cs" />
+    <Compile Include="Classes\Utility\Database.cs" />
     <Compile Include="Classes\Utility\FileManager.cs" />
     <Compile Include="Classes\Utility\Logger.cs" />
     <Compile Include="Classes\Program\Program.cs" />
@@ -85,6 +82,10 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Documentation\README.md" />
+    <Content Include="Resources\DropTables.sql" />
+    <Content Include="Resources\InitializeTables.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Outfits.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -97,6 +98,7 @@
   <ItemGroup>
     <Content Include="Resources\Outfits.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\Items.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

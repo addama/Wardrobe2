@@ -14,7 +14,7 @@ namespace Wardrobe {
 				contents = r.ReadToEnd();
 				r.Close();
 			} catch (Exception error) {
-				Logger.Error(error.StackTrace);
+				Logger.Error(error);
 			}
 			return contents;
 		}
@@ -29,7 +29,7 @@ namespace Wardrobe {
 				}
 				r.Close();
 			} catch (Exception error) {
-				Logger.Error(error.StackTrace);
+				Logger.Error(error);
 			}
 			return lines;
 		}
@@ -41,7 +41,7 @@ namespace Wardrobe {
 				w.Write(contents);
 				w.Close();
 			} catch (Exception error) {
-				Logger.Error(error.StackTrace);
+				Logger.Error(error);
 				return false;
 			}
 			return true;
@@ -54,7 +54,7 @@ namespace Wardrobe {
 				w.WriteLine(contents);
 				w.Close();
 			} catch (Exception error) {
-				Logger.Error(error.StackTrace);
+				Logger.Error(error);
 				return false;
 			}
 			return true;

@@ -3,13 +3,13 @@ using System;
 
 namespace Wardrobe {
     static class Program {
-		private static string file = "./wardrobe.db";
         static void Main() {
 			Logger.CheckLogs();
 			Logger.Separator();
 			Logger.Info("Wardrobe startup");
 			AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnExit);
-			DatabaseManager db = new DatabaseManager(file);
+			Database.Connect(Constants.databaseFile);
+			DatabaseManager.InitializeDatabase();
 			//testLogger();
         }
 

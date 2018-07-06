@@ -6,7 +6,7 @@ namespace Wardrobe {
 	// TODO: Log rotation - use FileManger.GetInfo()["Length"] to rotate files based on lines
 
 	static class Logger {
-		private static string file = ".\\logs\\wardrobe.log";
+		private static string file = Constants.logFile;
 		private static List<string> levels = new List<string>{ "Info", "Warn", "Error", "Holy Shit" };
 		private static int errorLevel = 2;
 		private static int warnLevel = 1;

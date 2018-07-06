@@ -6,11 +6,11 @@ namespace Wardrobe {
 	abstract class Rating {
 		protected int current = 0;
 		protected int max = 5;
-		protected string[] ratings;
+		protected List<string> ratings;
 
-		public Rating(int current, string[] ratings) {
+		public Rating(int current, List<string> ratings) {
 			this.ratings = ratings;
-			this.max = this.ratings.Length - 1;
+			this.max = this.ratings.Count - 1;
 			if (current < 0) current = 0;
 			if (current > this.max) current = this.max;
 		}
@@ -36,22 +36,22 @@ namespace Wardrobe {
 	}
 
 	class GoodBadRating : Rating {
-		public GoodBadRating(int current) : base(current, new string[] { "Terrible", "Bad", "Neutral", "Good", "Great" }) {}
+		public GoodBadRating(int current = 0) : base(current, Constants.goodbad) {}
 	}
 
 	class FormalityRating : Rating {
-		public FormalityRating(int current) : base(current, new string[] { "Casual", "Semi-Casual", "Business", "Semi-Formal", "Formal" }) {}
+		public FormalityRating(int current) : base(current, Constants.formality) {}
 	}
 
 	class WarmthRating : Rating {
-		public WarmthRating(int current) : base(current, new string[] { "Cool", "Neutral", "Warm" }) { }
+		public WarmthRating(int current) : base(current, Constants.warmth) { }
 	}
 
 	class WearRating : Rating {
-		public WearRating(int current) : base(current, new string[] { "Ratty", "Well-worn", "Like New", "Pristine" }) { }
+		public WearRating(int current) : base(current, Constants.wear) { }
 	}
 
 	class FitRating : Rating {
-		public FitRating(int current) : base(current, new string[] { "Too tight", "Tight", "Fits", "Loose", "Too loose" }) { }
+		public FitRating(int current) : base(current, Constants.fit) { }
 	}
 }

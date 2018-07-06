@@ -6,8 +6,8 @@ using System.Globalization;
 
 namespace Wardrobe {
 
-	abstract class XMLManager {
-		public static XDocument Load(string file) {
+	static class XMLManager {
+		internal static XDocument Load(string file) {
 			XDocument doc = new XDocument();
 			FileManager.Validate(file);
 			try { 
@@ -19,8 +19,8 @@ namespace Wardrobe {
 			return doc;
 		}
 
-		public static void Query(XDocument source, string type, string where) {
-
+		internal static void Query(XDocument source, string type, string where) {
+			
 		}
 	}
 
